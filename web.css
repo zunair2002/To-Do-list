@@ -1,99 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    text-align: center;
-    background: linear-gradient(to bottom, black, #4b1b04);
-    color: white;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #121212; 
+    color: #e0e0e0;
     margin: 0;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #1e1e1e; 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(15, 236, 227, 0.1); 
+    width: 100%;
+    max-width: 650px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h2 {
-    font-size: 40px;
-    margin-bottom: 30px;
-    color: #e84f03;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(15, 236, 227, 0.5); 
 }
 
-input {
-    padding: 10px;
-    width: 400px;
-    border: 2px solid #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    font-size: 16px;
+h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: transparent;
+    background: linear-gradient(90deg, #0fece3, #a742e3); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 15px;
+    border: 2px solid transparent;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
     outline: none;
+    transition: all 0.4s ease;
 }
-input:hover{
-    border: 2px solid #e84f03;
-    transition: 0.3s;
 
+input[type="text"]:focus {
+    background-color: #333;
+    border-image: linear-gradient(90deg, #0fece3, #a742e3) 1; 
 }
 
 button {
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: 600;
     border: none;
-    border-radius: 5px;
-    background: #e84f03;
     color: white;
     cursor: pointer;
-    transition: 0.3s;
-    margin: 7px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
 
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+button:hover::before {
+    left: 100%;
 }
 
 button:hover {
-    background: #ff477e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
+
+#addTask {
+    border-radius: 0 8px 8px 0;
+    background: linear-gradient(90deg, #0fece3, #a742e3);
+}
+
+#clearAll {
+    border-radius: 8px;
+    background: linear-gradient(90deg, #0fece3, #a742e3);
+    margin-top: 10px;
+}
+
 ul {
     list-style: none;
     padding: 0;
-    margin: 20px auto;
-    max-width: 400px;
+    margin: 25px 0;
 }
+
 li {
-    background: white;
-    color: black;
-    margin: 8px 40px;
-    padding: 5px;
-    border-radius: 5px;
+    background: #2a2a2a;
+    color: #e0e0e0;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 18px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid transparent;
     transition: all 0.3s ease-in-out;
 }
+
 li:hover {
-    background: #bab6b6;
+    background: #333;
+    transform: translateX(10px);
+    border-left-color: #0fece3; 
 }
-#error {
-    color: #ffffff;
-    font-size: 14px;
-    margin-top: 15px;
+
+.error-message {
+    color: #e74c3c;
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.7);
+    display: none;
+    margin: 10px 0;
 }
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding: 10px;
+    background-color: rgba(42, 42, 42, 0.5);
+    border-radius: 8px;
+}
+
 #taskCount {
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffffff;
 }
+
+#taskCount span {
+    color: #0fece3;
+    text-shadow: 0 0 8px rgba(15, 236, 227, 0.7);
+}
+
+
+hr {
+    border: none;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 40px 0;
+}
+
 .gallery {
-    margin-top: 52px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
 }
 
 .gallery img {
-    width: 180px;
-    margin: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
 }
+
 .gallery img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-#largeImage {
-    width: 250px;
-    display: none;
-    border-radius: 10px;
-    margin-top: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 25px rgba(15, 236, 227, 0.6);
+    border-color: #0fece3;
 }
 
+#largeImage {
+    display: none; 
+    width: 100%;
+    max-width: 450px;
+    margin: 30px auto 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 3px solid #0fece3;
+}
+@media (max-width: 640px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        border-radius: 8px;
+        margin-bottom: 10px;
+        width: auto;
+    }
+
+    #addTask {
+        border-radius: 8px;
+    }
+
+    li:hover {
+        transform: translateX(5px);
+    }
+
+    .gallery img {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -4,7 +4,7 @@ $(document).ready(function() {
     }
     
     $("#addTask").click(function() {
-        let task = $("#taskInput").val();
+        let task = $("#taskInput").val().trim();
         if (task === "") {
             $("#error").fadeIn().delay(2000).fadeOut();
         } else {
@@ -15,11 +15,30 @@ $(document).ready(function() {
         }
     });
 
+    // Optional: Add task on Enter key press
+    $("#taskInput").keypress(function(e) {
+        if (e.which === 13) { // Enter key
+            $("#addTask").click();
+        }
+    });
+
     $("#clearAll").click(function() {
-        $("#taskList").fadeOut(function() { $(this).empty().show(); updateCount(); });
+        $("#taskList").fadeOut(function() {
+            $(this).empty().show();
+            updateCount();
+        });
+    });
+
+    // Add task deletion on click
+    $("#taskList").on("click", "li", function() {
+        $(this).fadeOut(function() {
+            $(this).remove();
+            updateCount();
+        });
     });
 
     $(".imgs").click(function() {
-        $("#largeImage").attr("src", $(this).attr("src")).fadeIn();
+        let src = $(this).attr("src");
+        $("#largeImage").attr("src", src).fadeIn();
     });
 });
