@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive To-Do List</title>
+    <link rel="stylesheet" href="web.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>My To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <p id="error" style="color:rgb(255, 255, 255); display:none;">Please enter a task</p>
+    <ul id="taskList"></ul>
+    <button id="addTask">Add Task</button>
+    <button id="clearAll">Clear All</button>
+    <p>Task Count: <span id="taskCount" style="color: #e84f03;">0</span></p>
+    <hr>
+    <h3 style="font-size: 26px;color: #e84f03">Image Gallery</h3>
+    <div class="gallery">
+        <img src="img1.jpg" class="imgs">
+        <img src="img2.jpg" class="imgs">
+        <img src="img3.jpg" class="imgs">
+        <img src="img4.jpg" class="imgs">
+
+    </div>
+    <hr>
+    <img id="largeImage" src="">
+
+    <script src="web.js"></script>
+</body>
+</html>

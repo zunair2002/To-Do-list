@@ -1,0 +1,99 @@
+body {
+    text-align: center;
+    background: linear-gradient(to bottom, black, #4b1b04);
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: #e84f03;
+}
+
+input {
+    padding: 10px;
+    width: 400px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+input:hover{
+    border: 2px solid #e84f03;
+    transition: 0.3s;
+
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #e84f03;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 7px;
+
+}
+
+button:hover {
+    background: #ff477e;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 400px;
+}
+li {
+    background: white;
+    color: black;
+    margin: 8px 40px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+li:hover {
+    background: #bab6b6;
+}
+#error {
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 15px;
+}
+#taskCount {
+    font-weight: bold;
+    font-size: 18px;
+}
+.gallery {
+    margin-top: 52px;
+}
+
+.gallery img {
+    width: 180px;
+    margin: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+}
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#largeImage {
+    width: 250px;
+    display: none;
+    border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
